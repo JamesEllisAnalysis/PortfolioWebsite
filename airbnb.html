@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Analysis Project</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body.project-page {
+            background-color: black;
+            color: white;
+        }
+        #header.project-page {
+            height: 80px; /* You can adjust this value as per your needs */
+            background-image: none;
+        }
+        #header.project-page .container nav {
+            height: 100%;
+            display: flex;
+            justify-content: space-between; /* This is to align your navigation menu to the right */
+        }
+
+        
+    </style>
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+<body class="project-page">
+<div id="header" class="project-page">
+    <div class="container">
+        <nav>
+            <div class="empty-space"></div>
+            <ul id="sidemenu">
+                <li><a href="index.html#header">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+    </div>
+</div>
+<!-- Start of the Project Content -->
+<div id="project-content" class="container">
+    <h1 style="margin-bottom: 60px; text-align: center;">
+        <span>Analysis of </span>
+        <span style="color: #FF6666">Airbnb</span>
+        <span > Listings in New Zealand</span>
+    </h1>
+    
+
+    <h2 style="margin-bottom: 10px; color: #FF6666 ; ">Project Objective</h2>
+<p style="margin-bottom: 0px;">The goal for this project was to analyze Airbnb New Zealand data to better understand the market and provide actionable insights for both customers and hosts of Airbnb in New Zealand. The findings could help hosts optimize their listings and assist customers in making informed booking decisions. The analysis is split into two parts:</p>
+<div id = 'airbnb'>
+    <div id="services">
+        <div class="container">
+            <div class="services-list" style="display: flex; flex-direction: column;">
+                <div style="padding: 15px; margin-bottom: 5px;">
+                    <h3 style="text-align:center;margin-bottom: 15px; font-size: 20px;">Part A - Trends Analysis</h3>
+                    <p style="margin-bottom: 15px; font-size: 15px;">In this section I looked at data from April 2022 to April 2024 to visualize the distribution of Airbnb listings throughout New Zealand and understand how the price, type of listing and earnings for different regions varied throughout the year.</p>
+                    <p style = "margin-bottom: 0px; font-size: 15px;"> The results of my analysis can be viewed in an interactive dashboard created with Tableau Public.</p>
+                    <p style="text-align: center;">
+                        <a href="https://public.tableau.com/app/profile/james1470/viz/LandscapeofAirbnbListingsinNewZealand/Dashboard1" style="font-size: 18px; font-weight: bold; text-decoration: underline;" target="_blank">View Dashboard</a>
+                    </p>
+                    
+                </div>
+                <div style="padding: 20px; margin-bottom: 20px">
+                    <h3 style="text-align: center;margin-bottom: 15px; font-size: 20px;">Part B: Comparison of popular holiday locations in the North vs South Island.</h3>
+                    <p style="margin-bottom: 15px; font-size: 15px;">I analyzed a snapshot of listings data in December 2022, specifically comparing top holiday spots in New Zealand's North and South islands at summer's onset. Using Python, I evaluated data groups from each island's top five destinations, focusing on these questions:</p>
+                    <ol style="margin-bottom: 15px; padding-left: 20px;">
+                        <li style="font-size: 15px;margin-bottom: 10px;">What are the similarities / differences in the distribution of type, price and availability of listings between the North and South Island?</li>
+                        <li style="font-size: 15px;margin-bottom: 10px">Based on the data, what would be some considerations to make when deciding between a North vs South island holiday?</li>
+                        <li style="font-size: 15px;margin-bottom: 10px">What are the features of a successful listing in the North vs South islands and how do they compare?</li>
+                    </ol>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+    
+    <h2 style="margin-bottom: 10px; ; color: #FF6666 ">Data</h2>
+    <p style="margin-bottom: 15px;">The datasets were obtained from Inside Airbnb, an open source data scraping project which catalogs all publicly available data from the official Airbnb Website. Inside Airbnb  is not officially affiliated with Airbnb and is described on its website as a ‘mission driven project that provides data and advocacy about Airbnb's impact on residential communities. </p>
+    <p style="margin-bottom: 15px;">The data  for New Zealand is scraped approximately quarterly and each dataset represents a snapshot in time of all listings data. Each  dataset contains wide data with as many as 80 columns including information on price, type of listing, host details, location coordinates  and information derived from each listing’s booking calendar.   For this project I utilized the publicly available data in the form of 8 CSV files from April 2022 up until April 2023 as well as some open GeoJson data on New Zealand territory boundaries for choropleth visualizations.</p>
+    <p style="margin-bottom: 90px;">The data was merged, processed and cleaned using Python.</p>
+    </p>
+   
+    
+
+
+    <h2 style="margin-bottom: 30px;text-align: center;  "> Summary of Key findings - Part A  </h2>
+    <h3 style="margin-bottom: 10px; ; color: #FF6666 ">Average prices for listings generally rose throughout April 2022 and April 2024 </h3>
+    <p style="margin-bottom: 30px;" > It goes without saying that the effects of Covid-19 in New Zealand would have significantly impacted the Airbnb market. The data showed a steady increase in the average prices of listings throughout 2022 and into 2023 for most regions. This is likely a result of the continued easing of restrictions and diminishing concerns imposed by the pandemic. </p>
+    <img src="images/fig0.jpg" alt="Summary of Key Findings" width="1000" height="500" style="margin-bottom: 60px;">
+
+    <h3 style="margin-bottom: 10px; ; color: #FF6666 "> Aucklanders Dominate the Market  </h3>
+    <p style="margin-bottom: 30px;" >Unsurprisingly, Aucklanders dominate the Airbnb market, with Auckland having the largest number of listings. Proportionally, more hosts are from Auckland than there are listings in Auckland. </p>
+
+    <!-- Image -->
+    <img src="images/airbnbfig1.jpg" alt="Summary of Key Findings" width="1000" height="500" style="margin-bottom: 60px;">
+    <h3 style="margin-bottom: 10px; ; color: #FF6666 "> Queenstown Leads the Pack in Terms of Price </h3>
+    <p style="margin-bottom: 30px;" > Looking at the top 15 regions by average price, Queenstown is more than $100 more expensive per night than the next most expensive region. Notably Auckland does not make the top 15.</p>
+    <img src="images/fig22.jpg" alt="Summary of Key Findings" style="display: block; margin-left: auto; margin-right: auto; width: 500px; height: 400px;margin-bottom: 90px;">
+
+
+    <h2 style="margin-bottom: 30px;text-align: center;  "> Summary of Key findings - Part B  </h2>
+    <h3 style="margin-bottom: 10px; ; color: #FF6666 "> More single bedroom listings in the South Island </h3>
+    <p style="margin-bottom: 30px;" > The bulk of listings for both Islands are for 1-4 bedroom properties. Notably the South Island has a relatively larger proportion of single bedroom listings, while the North Island tended to have slightly more larger properties. </p>
+    <div style="display: flex; justify-content: center;">x
+        <img src="images/fig4.jpg" alt="Summary of Key Findings" width="800" height="400" style="margin-bottom: 60px;">
+    </div>
+    
+  
+
+    <h3 style="margin-bottom: 10px; ; color: #FF6666 "> Availability a key difference between South Island and North Island holiday destinations heading into summer </h3>
+    <p style="margin-bottom: 30px;" > Price and reviews had fairly similar distributions for both the North and South Island groups, but there were fewer properties in the South Island with availability for booking following the three months starting from 11 December. </p>
+    <p style="margin-bottom: 30px;" > </p>
+
+    <!-- Images -->
+<div style="display: flex; justify-content: center;">
+    <img src="images/fig2.jpg" alt="Summary of Key Findings" width="800" height="250">
+</div>
+<div style="display: flex; justify-content: center;">
+    <img src="images/fig3.jpg" alt="Summary of Key Findings" width="800" height="250" style="margin-bottom: 60px;">
+
+</div>
+    <h3 style="margin-bottom: 10px; ; color: #FF6666 "> The disparity in booking availability was largest for 3-5 bedroom listings  </h3>
+    <p style="margin-bottom: 30px;" > With the expception of very large listings (6 bedrooms or more), the South Island group had lower average availability across all property sizes. The difference was largest for 3-5 bedroom properties, where South Island listings had more than 25% fewer days availabile for booking compared to the North Island.  </p>
+
+    <div style="display: flex; justify-content: center;">
+        <img src="images/fig10.jpg" alt="Summary of Key Findings" width="600" height="" style="margin-bottom: 60px;">
+        
+    </div>
+<!-- Images -->
+<h3 style="margin-bottom: 10px ; color: #FF6666 ;"> Inverse relationship between price and reviews per month</h3>   
+<p style="margin-bottom: 15px;" > As one would expect, there was a positive relationship between price and number of bedrooms. Prices for listings in the South Island group were slightly higher on average, and there is some indication that the disparity in average prices increases with the size of the property. Listings with 6 or more bedrooms were on average 25% more expensive in the South Island compared with the North, although it is important to not that the sample size is small. </p>
+<p style="margin-bottom: 15px;" > The average number of reviews per month and the implied occupancy rate decreased as the number of bedrooms got larger. The number of reviews per month were reasonably similar between the North and South Islands, with the exeption of listings with 6 or more bedrooms, where North Island listings almost doubled those in the South Island. This suggests to some extent that there is relatively higher demand for larger properties in the North Island.</p>
+<p style="margin-bottom: 30px;" > Listings where the bedroom size was not specified received a relatively high number of reviews on average and they are priced similarly to 1-bedroom accomodations. Upon further investigation, the majority of these listings were found to be studios or niche accomodations such as guest suites, chalets and cabins.  </p>
+
+
+<div style="display: flex; justify-content: center;">
+    <img src="images/fig5.jpg" alt="Summary of Key Findings" width="900" height="350" style="margin-bottom: 60px;">
+</div>
+
+<h3 style="margin-bottom: 10px ; color: #FF6666 ;"> Negative relationship between price and listing success appeared non-linear and generally held true for all regions </h3> 
+<p style="margin-bottom: 30px;" > In order to analyze what the features of a successful listing were, it was required to first define what a succesful listing is in the context of the data. I considered utilizing open data on median house prices in the region to estimate earnings/profit, but decided against it in order to avoid introducing additional bias/complexity to the analysis. I also wanted to focus on a metric that was relevant to both hosts and customers. The approach I decided on was to define a successful listing as one that received a high number of reviews per month where it was penalized for low review ratings. I created a new variable, review_metric, which was calculated as follows:  </p>
+
+<div style="display: flex; justify-content: center;">
+    <img src="images/CodeCogsEqn.png" alt="Summary of Key Findings" width="600" height="60" style="margin-bottom: 30px;">
+</div> 
+
+<p style="margin-bottom: 30px;" > Plotting the review_metric against price and color coding by region, a negative and non-linear relationship is observed between price and listing success irrespective of region. </p>
+
+<div style="display: flex; justify-content: center;">
+    <img src="images/fig6.jpg" alt="Summary of Key Findings" width="800" height="500">
+</div>
+
+<div style="display: flex; justify-content: center;">
+    <img src="images/fig7.jpg" alt="Summary of Key Findings" width="800" height="500" style="margin-bottom: 60px;">
+</div>
+
+
+<h3 style="margin-bottom: 10px ; color: #FF6666 ;"> There were many variables that assisted in predicting listing success. </h3> 
+<p style="margin-bottom: 15px;" > In order to understand the features that were associated with successful listings, I considered a number of machine learning methods. The fact that random forest models handle linear and non-linear relationships, are generally robust to outliers, work in regression settings, and implicitly perform feature selection to avoid multicollinearity through bootstrapping made model selection an easy decision as many of these characteristics were observed in the data. </p>
+<p style="margin-bottom: 30px;" > Before running the model, significant preparation of the data was conducted in additional to the original cleaning. Enigneered features were added to the data including the time the listing has been active in days, the duration the host has been on airbnb (across all listings) and the number of amenities listed. Categorical variables were encoded, missing values were imputed using mean-imputation. The process of backwards elimination was used to elimate irellevant variables and the correlation matrices of the final variables used in the model are below. </p>
+<div>
+    <img src="images/fig11.jpg" alt="Summary of Key Findings" width="900" height="500">
+</div>
+<div >
+    <img src="images/fig12.jpg" alt="Summary of Key Findings" width="900" height="500">
+</div>
+
+<h3 style="margin-bottom: 10px ; color: #FF6666 ;"> Model Results </h3> 
+<p style="margin-bottom: 30px;" >Modelling the success of the listing for broad groups without incorporating the specific region each listing in proved to be challenging. Intuitively, the reviews per month that a listing would receive is likely be heavily dependent on the specific location of the listing. The objective was to identify and compare features of a successful listing in the North vs South islands and therefore specific location data was not incorporated into the model. The data for each group was split into a training and test set with a ratio of 80:20, and the model was trained on the test data and evaluated against the hold out set. With some feature engineering and tuning of hyperparameters using a grid search, the final model performance was as outlined below:</p>
+<div  style="display: flex; justify-content: center;" >
+    <img src="images/modelres.jpg" alt="Summary of Key Findings" width="350" height="190" style="margin-bottom: 30px;">
+</div>
+<p style="margin-bottom: 60px;" >The results indicated that there was a considerable degree of overfitting of the training data, with relatively high training R square values and comparatively lower test values. The coefficients of determination of 0.463 and 0.433 for the North and South islands respectively do however suggest that a reasonable proportion of the variance in review_metric is explained by the model. While there are certainly improvements that can be made to improve model performance, creating a comprehensive machine learning mdoel was outside the scope of this project. If I were to continue with this model, I would need to further investigate outlier thresholds, feature selection, the treatment of categorical variables, and potentially transform the target variable.</p>
+
+
+
+
+<h3 style="margin-bottom: 10px ; color: #FF6666 ;"> Price was the key determinant of listing success in both North and South Islands but there were some important differences. </h3> 
+
+<p style="margin-bottom: 30px;" >The gini-importance coefficients for the model variables provide information on the features of successful listings. Based on the data, price was the most important factor for both islands but played a larger role in the North Island. The length of time that the listing had been up as well as the duration with which the host has been with Airbnb mattered more in the South Island. The host acceptance rate was a key feature in the North Island but had last impact in determining listing success in the South Island. The number of amenities listed was also a feature of note.</p>
+<div style="display: flex; justify-content: center;">
+    <img src="images/fig8.jpg" alt="Summary of Key Findings" width="1000" height="500">
+</div>
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+    
+</script>
+</body>
+</html>
